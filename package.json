@@ -1,0 +1,24 @@
+{
+  "name": "tss-dropdesk",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "The Souled Store trend response desk: a live pipeline, speed benchmark, 24-hour war room, cohort retention read, catalog governance and AI copilot in one dashboard.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.12.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "vite": "^5.4.8"
+  }
+}
