@@ -81,7 +81,7 @@ export function Kanban() {
               {items.map((o) => (
                 <div
                   key={o.id}
-                  className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-lg p-3.5 flex flex-col gap-2.5 min-h-[280px] shadow-card dark:shadow-cardDark hover:-translate-y-0.5 hover:shadow-lg transition-all"
+                  className="bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-lg p-3.5 flex flex-col gap-2.5 min-h-[370px] shadow-card dark:shadow-cardDark hover:-translate-y-0.5 hover:shadow-lg transition-all"
                 >
                   <ImgThumb image={o.image} />
                   <div className="flex items-center justify-between gap-2 flex-wrap">
