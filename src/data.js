@@ -168,10 +168,10 @@ export const ANOMALIES = [
 ]
 
 export const CREATIVE_LOG = [
-  { variant: 'A', hook: 'UGC style: "Off the pitch, into your wardrobe."', status: 'Approved, live', kind: 'good' },
-  { variant: 'B', hook: 'Urgency: "The jacket everyone’s asking about. Limited run."', status: 'Approved, live', kind: 'good' },
-  { variant: 'C', hook: 'Utility: "Vintage varsity, reworked for game day."', status: 'Edited by brand team', kind: 'neutral' },
-  { variant: 'D', hook: 'Educational: fabric and GSM callout', status: 'Held for hour-6 rotation', kind: 'warning' },
+  { variant: 'A', hook: 'UGC style: "Off the pitch, into your wardrobe."', status: 'Approved, live', kind: 'good', hookRate: 38 },
+  { variant: 'B', hook: 'Urgency: "The jacket everyone’s asking about. Limited run."', status: 'Approved, live', kind: 'good', hookRate: 34 },
+  { variant: 'C', hook: 'Utility: "Vintage varsity, reworked for game day."', status: 'Edited by brand team', kind: 'neutral', hookRate: 24 },
+  { variant: 'D', hook: 'Educational: fabric and GSM callout', status: 'Held for hour-6 rotation', kind: 'warning', hookRate: 17 },
 ]
 
 export const SENTIMENT = [

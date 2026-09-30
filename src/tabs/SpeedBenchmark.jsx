@@ -1,5 +1,5 @@
 import { PanelHead, Explainer, Card, StatTile, StatGrid, ChartTitle, Table, Td } from '../components/ui.jsx'
-import { StackedStageBar } from '../components/charts.jsx'
+import { StackedStageBar, HeadToHeadChart } from '../components/charts.jsx'
 import { OLD_PROCESS_STAGES, FAST_TRACK_STAGES, COMPRESSION_ROWS } from '../data.js'
 
 export default function SpeedBenchmark() {
@@ -19,6 +19,11 @@ export default function SpeedBenchmark() {
         <StatTile label="Speed gain" value="~42" unit="×" note="Hours instead of weeks" highlight="brand" />
         <StatTile label="Verdict window" value="24" unit="hrs" note="Build, then 12.5h of live read, from signal" />
       </StatGrid>
+
+      <Card className="mb-3.5">
+        <ChartTitle title="Total time to live" sub="Same axis, both bars, so the gap is the point." />
+        <HeadToHeadChart oldHours={504} oldLabel="504 hrs (21 days)" newHours={11.5} newLabel="11.5 hrs" multiplier="~42×" />
+      </Card>
 
       <Card className="mb-3.5">
         <ChartTitle title="Old process: 21 days, stage by stage" sub="One SKU, one channel launch, run in sequence by separate teams." />

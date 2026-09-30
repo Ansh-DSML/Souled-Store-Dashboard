@@ -11,7 +11,7 @@ function HeroImage() {
     <img
       src="/images/hero/opp-021-varsity-jacket.jpg"
       alt="OPP-021 Retro Varsity Jacket"
-      className="w-full max-h-72 object-cover rounded-lg mb-4 bg-surface-2 dark:bg-surface-dark2"
+      className="w-full aspect-[2/1] object-cover rounded-lg mb-4 bg-surface-2 dark:bg-surface-dark2"
       onError={() => setBroken(true)}
     />
   )
@@ -41,10 +41,10 @@ export default function WarRoom() {
       <div className="border-l-[3px] border-brand bg-brand-soft dark:bg-brand-softdark rounded-r-lg px-4 py-3.5 mb-4">
         <div className="text-[12.5px] uppercase tracking-wide font-semibold text-brand-dark dark:text-brand mb-1">The trigger</div>
         <p className="text-[15.5px]">
-          During a match, a national all rounder is filmed post match in an oversized cream and maroon varsity jacket
-          with an owl patch, not a Souled Store product. Clips cross 40,000 mentions within three hours. The design
-          is original styling, not tied to any licensed franchise, so it enters the fast track rather than rights
-          review.
+          During a match, a national all rounder is photographed courtside in an oversized cream and maroon varsity
+          jacket, cream wool body, maroon leather sleeves, a winged emblem and a planet patch stitched on, not a
+          Souled Store product. Clips cross 40,000 mentions within three hours. The design is original styling, not
+          tied to any licensed franchise, so it enters the fast track rather than rights review.
         </p>
       </div>
 

@@ -73,6 +73,39 @@ export function StackedStageBar({ stages, unit }) {
   )
 }
 
+// A deliberately dramatic head-to-head: one bar the full width of the old
+// process, one bar scaled to the same axis for the fast track, so the gap
+// reads at a glance instead of needing the numbers read out.
+export function HeadToHeadChart({ oldHours, oldLabel, newHours, newLabel, multiplier }) {
+  const newPct = Math.max((newHours / oldHours) * 100, 2.5)
+  return (
+    <div>
+      <div className="flex flex-col sm:flex-row sm:items-center gap-6">
+        <div className="flex-1 flex flex-col gap-4 min-w-0">
+          <div>
+            <div className="flex items-baseline justify-between mb-1.5">
+              <span className="text-[13px] font-semibold text-ink-2 dark:text-ink-dark2">Old process</span>
+              <span className="mono-nums font-bold text-[14.5px]">{oldLabel}</span>
+            </div>
+            <div className="h-11 rounded-lg bg-surface-2 dark:bg-surface-dark2 border border-border dark:border-border-dark w-full" />
+          </div>
+          <div>
+            <div className="flex items-baseline justify-between mb-1.5">
+              <span className="text-[13px] font-semibold text-ink-2 dark:text-ink-dark2">Fast track</span>
+              <span className="mono-nums font-bold text-[14.5px] text-brand-dark dark:text-brand">{newLabel}</span>
+            </div>
+            <div className="h-11 rounded-lg bg-brand" style={{ width: newPct + '%', minWidth: 14 }} />
+          </div>
+        </div>
+        <div className="flex-none flex sm:flex-col items-center justify-center gap-1 sm:w-36 sm:border-l sm:border-border sm:dark:border-border-dark sm:pl-6">
+          <div className="font-display font-extrabold text-[34px] leading-none text-brand-dark dark:text-brand">{multiplier}</div>
+          <div className="text-[12.5px] text-muted dark:text-muted-dark text-center">faster to live</div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function HourlyOrdersChart({ labels, data }) {
   const chrome = useChrome()
   const series = useSeriesColors()
@@ -122,18 +155,20 @@ export function Funnel({ steps }) {
   const series = useSeriesColors()
   const max = steps[0].v
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2.5">
       {steps.map((s, i) => {
-        const pct = Math.max((s.v / max) * 100, 6)
+        const pct = Math.max((s.v / max) * 100, 0.6)
         const drop = i > 0 ? ((1 - s.v / steps[i - 1].v) * 100).toFixed(1) : null
         return (
-          <div key={s.name} className="group relative">
+          <div key={s.name} className="flex items-center gap-3">
             <div
-              className="h-9 rounded-md flex items-center px-3 text-white text-[13.5px] font-semibold transition-[width] cursor-default"
-              style={{ width: pct + '%', background: series[i % series.length], minWidth: 120 }}
+              className="h-9 rounded-md flex-none transition-[width] cursor-default"
+              style={{ width: pct + '%', minWidth: 6, maxWidth: '78%', background: series[i % series.length] }}
               title={`${s.name}: ${s.v.toLocaleString()}${drop ? `, ${drop}% drop from previous step` : ''}`}
-            >
-              {s.name}, {s.v.toLocaleString()}
+            />
+            <div className="text-[13.5px] font-semibold whitespace-nowrap">
+              {s.name}, <span className="mono-nums">{s.v.toLocaleString()}</span>
+              {drop && <span className="text-muted dark:text-muted-dark font-normal"> ({drop}% drop)</span>}
             </div>
           </div>
         )

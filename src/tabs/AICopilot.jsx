@@ -50,6 +50,11 @@ export default function AICopilot() {
               </tr>
             ))}
           </Table>
+          <div className="mt-4 pt-3.5 border-t border-border dark:border-border-dark">
+            <div className="text-[13px] font-semibold text-ink-2 dark:text-ink-dark2 mb-1">Hook rate by variant</div>
+            <div className="text-[12.5px] text-muted dark:text-muted-dark mb-2">Why A and B are live, and D is held: the numbers behind the status column above.</div>
+            <LabeledBarChart data={CREATIVE_LOG.map((r) => ({ label: `Variant ${r.variant}`, v: r.hookRate }))} pct />
+          </div>
         </Card>
         <Card>
           <div className="font-bold text-[15.5px]">Comment sentiment snapshot</div>

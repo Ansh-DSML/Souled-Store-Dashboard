@@ -18,7 +18,7 @@ function ImgThumb({ id, image }) {
     <img
       src={`/images/products/${image}`}
       alt=""
-      className="w-full h-24 object-cover rounded-md mb-1.5 bg-surface-2 dark:bg-surface-dark2"
+      className="w-full h-24 object-cover object-top rounded-md mb-1.5 bg-surface-2 dark:bg-surface-dark2"
       onError={() => setBroken(true)}
     />
   )
@@ -66,12 +66,11 @@ export function Kanban() {
           return (
             <div
               key={col.id}
-              className={`rounded-xl p-2.5 flex flex-col gap-2.5 min-h-[80px] ${
-                isLive ? 'bg-brand-soft dark:bg-brand-softdark' : 'bg-surface-2 dark:bg-surface-dark2'
-              }`}
+              className="rounded-xl p-2.5 flex flex-col gap-2.5 min-h-[80px] bg-brand-soft dark:bg-brand-softdark"
             >
-              <div className="flex items-center justify-between px-1 pt-1">
-                <h4 className={`text-[14px] uppercase tracking-wide font-semibold ${isLive ? 'text-brand-dark dark:text-brand' : 'text-ink-2 dark:text-ink-dark2'}`}>
+              <div className="flex items-start justify-between gap-2 px-1 pt-1 min-h-[48px]">
+                <h4 className="text-[14px] leading-tight uppercase tracking-wide font-semibold text-brand-dark dark:text-brand flex items-center gap-1.5">
+                  {isLive && <span className="relative w-1.5 h-1.5 rounded-full bg-brand tss-pulse-ring flex-none mt-px" />}
                   {col.label}
                 </h4>
                 <span className="mono-nums text-[12.5px] text-muted dark:text-muted-dark bg-surface dark:bg-surface-dark border border-border dark:border-border-dark rounded-full px-2 py-0.5">
